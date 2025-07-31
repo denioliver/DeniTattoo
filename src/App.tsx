@@ -11,6 +11,11 @@ import { Booking } from './pages/Booking';
 import { Login } from './pages/Login';
 import { Admin } from './pages/Admin';
 
+// Componente wrapper para páginas com Layout
+const LayoutWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <Layout>{children}</Layout>
+);
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -18,33 +23,19 @@ function App() {
       <AuthProvider>
         <Router>
           <Routes>
+            {/* Rotas sem Layout */}
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<Admin />} />
-            <Route path="/" element={
-              <Layout>
-                <Homepage />
-              </Layout>
-            } />
-            <Route path="/sobre" element={
-              <Layout>
-                <About />
-              </Layout>
-            } />
-            <Route path="/portfolio" element={
-              <Layout>
-                <Portfolio />
-              </Layout>
-            } />
-            <Route path="/agendamento" element={
-              <Layout>
-                <Booking />
-              </Layout>
-            } />
-            <Route path="/contato" element={
-              <Layout>
-                <About />
-              </Layout>
-            } />
+            
+            {/* Rotas com Layout */}
+            <Route path="/" element={<LayoutWrapper><Homepage /></LayoutWrapper>} />
+            <Route path="/sobre" element={<LayoutWrapper><About /></LayoutWrapper>} />
+            <Route path="/portfolio" element={<LayoutWrapper><Portfolio /></LayoutWrapper>} />
+            <Route path="/agendamento" element={<LayoutWrapper><Booking /></LayoutWrapper>} />
+            <Route path="/contato" element={<LayoutWrapper><About /></LayoutWrapper>} />
+            
+            {/* Fallback para rotas não encontradas */}
+            <Route path="*" element={<LayoutWrapper><Homepage /></LayoutWrapper>} />
           </Routes>
         </Router>
       </AuthProvider>

@@ -69,6 +69,21 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     isAdmin
   };
 
+  // Não renderizar nada enquanto carrega para evitar flicker
+  if (loading) {
+    return (
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        minHeight: '100vh',
+        background: '#0f0f0f'
+      }}>
+        <div style={{ color: '#ff6b35', fontSize: '18px' }}>Carregando...</div>
+      </div>
+    );
+  }
+
   return (
     <AuthContext.Provider value={value}>
       {children}

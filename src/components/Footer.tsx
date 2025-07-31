@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
 
@@ -40,7 +41,7 @@ const FooterText = styled.p`
   line-height: ${theme.typography.lineHeight.relaxed};
 `;
 
-const FooterLink = styled.a`
+const FooterRouterLink = styled(Link)`
   color: ${theme.colors.textSecondary};
   text-decoration: none;
   transition: color ${theme.transitions.fast};
@@ -52,12 +53,6 @@ const FooterLink = styled.a`
 
 const ContactInfo = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: ${theme.spacing.sm};
-`;
-
-const ContactItem = styled.div`
-  display: flex;
   align-items: center;
   gap: ${theme.spacing.sm};
   color: ${theme.colors.textSecondary};
@@ -66,33 +61,24 @@ const ContactItem = styled.div`
 const SocialLinks = styled.div`
   display: flex;
   gap: ${theme.spacing.md};
-  margin-top: ${theme.spacing.sm};
 `;
 
 const SocialLink = styled.a`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: ${theme.colors.surfaceLight};
-  border-radius: ${theme.borderRadius.md};
   color: ${theme.colors.textSecondary};
-  transition: all ${theme.transitions.fast};
+  font-size: ${theme.typography.fontSize.xl};
+  transition: color ${theme.transitions.fast};
 
   &:hover {
-    background: ${theme.colors.primary};
-    color: ${theme.colors.background};
-    transform: translateY(-2px);
+    color: ${theme.colors.primary};
   }
 `;
 
 const Copyright = styled.div`
-  text-align: center;
-  padding-top: ${theme.spacing.xl};
   margin-top: ${theme.spacing.xl};
+  padding-top: ${theme.spacing.lg};
   border-top: 1px solid ${theme.colors.border};
-  color: ${theme.colors.textMuted};
+  text-align: center;
+  color: ${theme.colors.textSecondary};
   font-size: ${theme.typography.fontSize.sm};
 `;
 
@@ -103,65 +89,54 @@ export const Footer: React.FC = () => {
         <FooterSection>
           <FooterTitle>Oliveira Tattoo</FooterTitle>
           <FooterText>
-            Estúdio especializado em tatuagens artísticas de alta qualidade.
-            Transformamos suas ideias em arte permanente com técnicas profissionais
-            e materiais de primeira linha.
+            Transformando pele em arte desde 2020. Especializada em tatuagens realistas, 
+            tribais e personalizadas. Cada trabalho é único e feito com paixão e dedicação.
           </FooterText>
           <SocialLinks>
-            <SocialLink
-              href="https://instagram.com/oliveiratattoo"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
+            <SocialLink href="https://instagram.com/oliveiratattoo" target="_blank" rel="noopener noreferrer">
               📷
             </SocialLink>
-            <SocialLink
-              href="https://wa.me/5511999999999"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-            >
+            <SocialLink href="https://facebook.com/oliveiratattoo" target="_blank" rel="noopener noreferrer">
+              📘
+            </SocialLink>
+            <SocialLink href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer">
               💬
             </SocialLink>
           </SocialLinks>
         </FooterSection>
 
         <FooterSection>
+          <FooterTitle>Navegação</FooterTitle>
+          <FooterRouterLink to="/sobre">Sobre o Estúdio</FooterRouterLink>
+          <FooterRouterLink to="/portfolio">Portfólio</FooterRouterLink>
+          <FooterRouterLink to="/agendamento">Agendar Consulta</FooterRouterLink>
+          <FooterRouterLink to="/admin">Área Administrativa</FooterRouterLink>
+        </FooterSection>
+
+        <FooterSection>
           <FooterTitle>Contato</FooterTitle>
           <ContactInfo>
-            <ContactItem>
-              📍 Rua das Artes, 123 - Centro, São Paulo - SP
-            </ContactItem>
-            <ContactItem>
-              📞 (11) 99999-9999
-            </ContactItem>
-            <ContactItem>
-              ✉️ contato@oliveiratattoo.com
-            </ContactItem>
-            <ContactItem>
-              🕒 Seg-Sex: 10h às 18h | Sáb: 9h às 16h
-            </ContactItem>
+            📍 Rua das Artes, 123 - Centro, São Paulo/SP
+          </ContactInfo>
+          <ContactInfo>
+            📞 (11) 99999-9999
+          </ContactInfo>
+          <ContactInfo>
+            ✉️ contato@oliveiratattoo.com
+          </ContactInfo>
+          <ContactInfo>
+            🕒 Seg-Sáb: 9h às 18h
           </ContactInfo>
         </FooterSection>
 
         <FooterSection>
           <FooterTitle>Serviços</FooterTitle>
-          <FooterLink href="/portfolio">Tatuagem Tradicional</FooterLink>
-          <FooterLink href="/portfolio">Realismo</FooterLink>
-          <FooterLink href="/portfolio">Blackwork</FooterLink>
-          <FooterLink href="/portfolio">Minimalista</FooterLink>
-          <FooterLink href="/portfolio">Geométrica</FooterLink>
-          <FooterLink href="/agendamento">Consulta Gratuita</FooterLink>
-        </FooterSection>
-
-        <FooterSection>
-          <FooterTitle>Links Úteis</FooterTitle>
-          <FooterLink href="/sobre">Sobre o Estúdio</FooterLink>
-          <FooterLink href="/portfolio">Portfólio</FooterLink>
-          <FooterLink href="/agendamento">Agendar Consulta</FooterLink>
-          <FooterLink href="/cuidados">Cuidados Pós-Tatuagem</FooterLink>
-          <FooterLink href="/admin">Área Administrativa</FooterLink>
+          <FooterText>• Tatuagens Realistas</FooterText>
+          <FooterText>• Tatuagens Tribais</FooterText>
+          <FooterText>• Tatuagens Personalizadas</FooterText>
+          <FooterText>• Cover-up</FooterText>
+          <FooterText>• Restauração de Tatuagens</FooterText>
+          <FooterText>• Consultoria e Orçamentos</FooterText>
         </FooterSection>
       </FooterContent>
 

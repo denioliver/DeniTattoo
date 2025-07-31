@@ -20,15 +20,29 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<Admin />} />
-            <Route path="/*" element={
+            <Route path="/" element={
               <Layout>
-                <Routes>
-                  <Route path="/" element={<Homepage />} />
-                  <Route path="/sobre" element={<About />} />
-                  <Route path="/portfolio" element={<Portfolio />} />
-                  <Route path="/agendamento" element={<Booking />} />
-                  <Route path="/contato" element={<About />} />
-                </Routes>
+                <Homepage />
+              </Layout>
+            } />
+            <Route path="/sobre" element={
+              <Layout>
+                <About />
+              </Layout>
+            } />
+            <Route path="/portfolio" element={
+              <Layout>
+                <Portfolio />
+              </Layout>
+            } />
+            <Route path="/agendamento" element={
+              <Layout>
+                <Booking />
+              </Layout>
+            } />
+            <Route path="/contato" element={
+              <Layout>
+                <About />
               </Layout>
             } />
           </Routes>

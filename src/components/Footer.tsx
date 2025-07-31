@@ -89,7 +89,7 @@ export const Footer: React.FC = () => {
         <FooterSection>
           <FooterTitle>Oliveira Tattoo</FooterTitle>
           <FooterText>
-            Transformando pele em arte desde 2020. Especializada em tatuagens realistas, 
+            Transformando pele em arte desde 2020. Especializada em tatuagens realistas,
             tribais e personalizadas. Cada trabalho é único e feito com paixão e dedicação.
           </FooterText>
           <SocialLinks>
